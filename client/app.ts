@@ -6,13 +6,14 @@ import { provideRouter, RouterConfig, ROUTER_DIRECTIVES } from '@angular/router'
 import { APP_BASE_HREF } from '@angular/common';
 import { PartiesList } from './imports/parties-list/parties-list.ts';
 import { PartyDetails } from './imports/party-details/party-details.ts';
+import { Layout } from './imports/layout/layout.ts';
 
 import template from './app.html';
 
 @Component({
   selector: 'app',
   template,
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, Layout]
 })
 class Socially {}
 

@@ -14,34 +14,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var parties_ts_1 = require('../../../collections/parties.ts');
-var parties_form_1 = require('../parties-form/parties-form');
-var router_1 = require('@angular/router');
-var angular2_meteor_1 = require('angular2-meteor');
 var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
-var parties_list_html_1 = require('./parties-list.html');
-var PartiesList = (function (_super) {
-    __extends(PartiesList, _super);
-    function PartiesList() {
-        var _this = this;
-        _super.call(this);
-        this.subscribe('parties', function () {
-            _this.parties = parties_ts_1.Parties.find();
-        }, true);
+var angular2_meteor_1 = require('angular2-meteor');
+var layout_html_1 = require('./layout.html');
+var Layout = (function (_super) {
+    __extends(Layout, _super);
+    function Layout() {
+        _super.apply(this, arguments);
     }
-    PartiesList.prototype.removeParty = function (party) {
-        parties_ts_1.Parties.remove(party._id);
-    };
-    PartiesList = __decorate([
+    Layout = __decorate([
         core_1.Component({
-            selector: 'parties-list',
-            template: parties_list_html_1.default,
-            directives: [parties_form_1.PartiesForm, router_1.ROUTER_DIRECTIVES]
-        }),
-        angular2_meteor_accounts_ui_1.InjectUser('user'), 
+            selector: 'layout',
+            template: layout_html_1.default,
+            directives: [angular2_meteor_accounts_ui_1.LoginButtons]
+        }), 
         __metadata('design:paramtypes', [])
-    ], PartiesList);
-    return PartiesList;
+    ], Layout);
+    return Layout;
 }(angular2_meteor_1.MeteorComponent));
-exports.PartiesList = PartiesList;
-//# sourceMappingURL=parties-list.js.map
+exports.Layout = Layout;
+//# sourceMappingURL=layout.js.map
