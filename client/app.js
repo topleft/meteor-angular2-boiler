@@ -13,6 +13,7 @@ var core_1 = require('@angular/core');
 var angular2_meteor_auto_bootstrap_1 = require('angular2-meteor-auto-bootstrap');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
+var main_menu_ts_1 = require('./imports/main-menu/main-menu.ts');
 var parties_list_ts_1 = require('./imports/parties-list/parties-list.ts');
 var party_details_ts_1 = require('./imports/party-details/party-details.ts');
 var layout_ts_1 = require('./imports/layout/layout.ts');
@@ -33,6 +34,7 @@ var Socially = (function () {
 var routes = [
     { path: '', component: parties_list_ts_1.PartiesList },
     { path: 'party/:partyId', component: party_details_ts_1.PartyDetails },
+    { path: 'main-menu', component: main_menu_ts_1.MainMenu },
 ];
 var APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(routes)

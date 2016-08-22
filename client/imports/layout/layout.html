@@ -1,3 +1,14 @@
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-light bg-faded  navbar-fixed-top">
+  <div class="container">
+    <a [routerLink]="['/main-menu']">
+      <span class="glyphicon glyphicon-menu-hamburger" id="hamburger">Menu</span>
+    </a>
+  </div>
   <login-buttons class="pull-xs-right"></login-buttons>
 </nav>
+
+<div class="sidebar-wrapper">
+  <div class="sidebar-nav">
+    <main-menu></main-menu>
+  </div>
+</div>

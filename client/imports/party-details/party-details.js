@@ -20,6 +20,7 @@ var meteor_1 = require('meteor/meteor');
 var angular2_meteor_1 = require('angular2-meteor');
 var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
 var party_details_html_1 = require('./party-details.html');
+// permission check not working
 function checkPermissions(instruction) {
     console.log('are we checking???');
     var partyId = instruction.params['partyId'];
@@ -59,7 +60,7 @@ var PartyDetails = (function (_super) {
             template: party_details_html_1.default,
             directives: [router_1.ROUTER_DIRECTIVES]
         }),
-        angular2_meteor_accounts_ui_1.InjectUser(),
+        angular2_meteor_accounts_ui_1.InjectUser('user'),
         angular2_meteor_accounts_ui_1.RequireUser(), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], PartyDetails);

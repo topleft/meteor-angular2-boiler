@@ -1,0 +1,7 @@
+<div class="col-xs-12">
+  <ul class="main-menu" *ngFor="let link of links">
+    <a [routerLink]="['/'+link.path]">
+      <li>{{link.displayText}}</li>
+    </a>
+  </div>
+</div>

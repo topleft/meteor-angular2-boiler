@@ -10,7 +10,7 @@ import { CanActivate, ComponentInstruction } from '@angular/router-deprecated';
 
 import template from './party-details.html';
 
-
+// permission check not working
 function checkPermissions(instruction: ComponentInstruction) {
   console.log('are we checking???')
   var partyId = instruction.params['partyId'];
@@ -23,7 +23,7 @@ function checkPermissions(instruction: ComponentInstruction) {
   template,
   directives: [ROUTER_DIRECTIVES]
 })
-@InjectUser()
+@InjectUser('user')
 @RequireUser()
 // this doesn't work
 // @CanActivate(checkPermissions)

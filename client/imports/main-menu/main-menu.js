@@ -14,25 +14,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
-var angular2_meteor_1 = require('angular2-meteor');
 var router_1 = require('@angular/router');
-var main_menu_ts_1 = require('../main-menu/main-menu.ts');
-var layout_html_1 = require('./layout.html');
-var Layout = (function (_super) {
-    __extends(Layout, _super);
-    function Layout() {
-        _super.apply(this, arguments);
+var angular2_meteor_1 = require('angular2-meteor');
+var main_menu_html_1 = require('./main-menu.html');
+var MainMenu = (function (_super) {
+    __extends(MainMenu, _super);
+    function MainMenu() {
+        _super.call(this);
     }
-    Layout = __decorate([
+    MainMenu.prototype.ngOnInit = function () {
+        this.links = [
+            { displayText: 'Sausage', path: 'Sausage' },
+            { displayText: 'Bacon', path: 'Bacon' },
+            { displayText: 'Ribs', path: 'Ribs' },
+            { displayText: 'Salami', path: 'Salami' }
+        ];
+    };
+    ;
+    MainMenu = __decorate([
         core_1.Component({
-            selector: 'layout',
-            template: layout_html_1.default,
-            directives: [angular2_meteor_accounts_ui_1.LoginButtons, router_1.ROUTER_DIRECTIVES, main_menu_ts_1.MainMenu]
+            selector: 'main-menu',
+            template: main_menu_html_1.default,
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], Layout);
-    return Layout;
+    ], MainMenu);
+    return MainMenu;
 }(angular2_meteor_1.MeteorComponent));
-exports.Layout = Layout;
-//# sourceMappingURL=layout.js.map
+exports.MainMenu = MainMenu;
+//# sourceMappingURL=main-menu.js.map

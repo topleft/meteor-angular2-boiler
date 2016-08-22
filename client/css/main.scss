@@ -1,2 +1,75 @@
 @import "{}/node_modules/angular2-meteor-accounts-ui/build/login-buttons.scss";
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
+
+
+body {
+  background-color: #f7f7f7;
+}
+
+// ----- SIDEBAR ---------- //
+
+$break-small: 768px;
+
+.navbar-light {
+  background: linear-gradient(#fff,#f7f7f1);
+  border-top: solid 1px #bbb;
+
+}
+
+.sidebar-wrapper {
+  height: 100%;
+  background-color: #bbb;
+  background: linear-gradient(#f9f9f9, #bbb);
+  position: fixed;
+  width: 200px;
+  border-right: solid 1px #bbb;
+
+  @media screen and (max-width:$break-small) {
+    width: 0px;
+  }
+}
+
+.sidebar-nav {
+  padding-top: 60px;
+  @media screen and (max-width:$break-small) {
+    margin: -200px;
+  }
+}
+
+
+#hamburger {
+  display: none;
+  color: #fff;
+  @media screen and (max-width:$break-small) {
+    display: inline-block;
+  }
+}
+
+
+.main-menu a {
+  text-decoration: none;
+}
+
+.main-menu li {
+  list-style: none;
+}
+
+ul.main-menu {
+  padding-left: 1rem;
+}
+
+
+// --------- MAIN CONTENT WINDOW ----------//
+
+.content-window {
+  padding-left: 200px;
+  padding-top: 41px;
+  border-bottom: solid 1px #bbb;
+  @media screen and (max-width:$break-small) {
+    padding-left: 0px;
+  }
+}
+
+.content-wrapper {
+  margin-top: 2rem;
+}

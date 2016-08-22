@@ -4,6 +4,7 @@ import { bootstrap } from 'angular2-meteor-auto-bootstrap';
 import { PartiesForm } from './imports/parties-form/parties-form';
 import { provideRouter, RouterConfig, ROUTER_DIRECTIVES } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { MainMenu } from './imports/main-menu/main-menu.ts';
 import { PartiesList } from './imports/parties-list/parties-list.ts';
 import { PartyDetails } from './imports/party-details/party-details.ts';
 import { Layout } from './imports/layout/layout.ts';
@@ -20,6 +21,7 @@ class Socially {}
 const routes: RouterConfig = [
   { path: '',              	component: PartiesList },
   { path: 'party/:partyId',	component: PartyDetails },
+  { path: 'main-menu',	        component: MainMenu },
 ];
 
 const APP_ROUTER_PROVIDERS = [
