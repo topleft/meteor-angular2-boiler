@@ -16,6 +16,7 @@ import template from './app.html';
   template,
   directives: [ROUTER_DIRECTIVES, Layout]
 })
+
 class Socially {}
 
 const routes: RouterConfig = [
