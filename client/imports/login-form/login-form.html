@@ -1,0 +1,24 @@
+<div class="col-xs-12 content-wrapper">
+  <div class="col-xs-6">
+    <h3>Login</h3>
+    <form class="form" id="login" [ngFormModel]="loginForm" #f="ngForm" (submit)="login(f.value)">
+      <div class="form-group">
+        <label>Username</label>
+        <input class="form-control" type="text" name="username" placeholder="enter username" ngControl="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" type="text" name="password" placeholder="enter password" ngControl="password">
+      </div>
+      <div class="form-group" *ngIf="isCreatingAccount">
+        <label>Confirm Password</label>
+        <input class="form-control" type="text" name="password" placeholder="re-enter password" ngControl="confirmPassword">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary full-width" type="button">Login</button>
+      </div>
+    </form>
+    <p class="pull-right"><a (click)="toggleIsCreatingAccount()">{{createAccountButtonText}}</a></p>
+
+  </div>
+</div>

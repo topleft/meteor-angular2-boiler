@@ -14,27 +14,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
-var angular2_meteor_1 = require('angular2-meteor');
 var router_1 = require('@angular/router');
-var main_menu_ts_1 = require('../main-menu/main-menu.ts');
-var login_logout_ts_1 = require('../login-logout/login-logout.ts');
-var layout_html_1 = require('./layout.html');
-//  when menu is displayed, menu button become a back button
-var Layout = (function (_super) {
-    __extends(Layout, _super);
-    function Layout() {
-        _super.apply(this, arguments);
+var meteor_1 = require('meteor/meteor');
+var angular2_meteor_1 = require('angular2-meteor');
+var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
+var login_logout_html_1 = require('./login-logout.html');
+var LoginLogout = (function (_super) {
+    __extends(LoginLogout, _super);
+    function LoginLogout() {
+        _super.call(this);
     }
-    Layout = __decorate([
+    // figure out how to access meteor.user inside a component
+    LoginLogout.prototype.ngOnInit = function () {
+        console.log('wowza user');
+        if (meteor_1.Meteor.user()) {
+            this.user = meteor_1.Meteor.user();
+            this.buttonText = 'Logout';
+            this.onClick = meteor_1.Meteor.logout;
+            this.path = '/';
+        }
+        else {
+            this.buttonText = 'Login';
+            this.path = 'login';
+        }
+    };
+    ;
+    LoginLogout = __decorate([
         core_1.Component({
-            selector: 'layout',
-            template: layout_html_1.default,
-            directives: [angular2_meteor_accounts_ui_1.LoginButtons, router_1.ROUTER_DIRECTIVES, main_menu_ts_1.MainMenu, login_logout_ts_1.LoginLogout]
-        }), 
+            selector: 'login-logout',
+            template: login_logout_html_1.default,
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }),
+        angular2_meteor_accounts_ui_1.InjectUser('user'), 
         __metadata('design:paramtypes', [])
-    ], Layout);
-    return Layout;
+    ], LoginLogout);
+    return LoginLogout;
 }(angular2_meteor_1.MeteorComponent));
-exports.Layout = Layout;
-//# sourceMappingURL=layout.js.map
+exports.LoginLogout = LoginLogout;
+//# sourceMappingURL=login-logout.js.map

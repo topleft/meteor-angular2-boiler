@@ -1,14 +1,15 @@
 <nav class="navbar navbar-light bg-faded  navbar-fixed-top">
-  <div class="container">
+  <div class="">
     <a [routerLink]="['/main-menu']">
       <span class="glyphicon glyphicon-menu-hamburger" id="hamburger">Menu</span>
     </a>
+    <div class="pull-xs-right"><a [routerLink]="['/']">boiler</a></div>
   </div>
-  <login-buttons class="pull-xs-right"></login-buttons>
 </nav>
 
 <div class="sidebar-wrapper">
   <div class="sidebar-nav">
     <main-menu></main-menu>
+    <login-logout></login-logout>
   </div>
 </div>

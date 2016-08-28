@@ -7,7 +7,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { MainMenu } from './imports/main-menu/main-menu.ts';
 import { PartiesList } from './imports/parties-list/parties-list.ts';
 import { PartyDetails } from './imports/party-details/party-details.ts';
+import { LoginForm } from './imports/login-form/login-form.ts';
 import { Layout } from './imports/layout/layout.ts';
+import { NotFound } from './imports/not-found/not-found.ts';
 
 import template from './app.html';
 
@@ -23,6 +25,8 @@ const routes: RouterConfig = [
   { path: '',              	component: PartiesList },
   { path: 'party/:partyId',	component: PartyDetails },
   { path: 'main-menu',	        component: MainMenu },
+  { path: 'login',	        component: LoginForm },
+  { path: '**',	        component: NotFound },
 ];
 
 const APP_ROUTER_PROVIDERS = [

@@ -10,6 +10,15 @@ body {
   }
 }
 
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 // ----- SIDEBAR ---------- //
 
 
@@ -42,15 +51,10 @@ body {
 
 #hamburger {
   display: none;
-  color: #fff;
+  color: #bbb;
   @media screen and (max-width:$break-small) {
     display: inline-block;
   }
-}
-
-
-.main-menu a {
-  text-decoration: none;
 }
 
 .main-menu li {
@@ -75,4 +79,8 @@ ul.main-menu {
 
 .content-wrapper {
   margin-top: 2rem;
+}
+
+.party-card {
+  height: 220px;
 }

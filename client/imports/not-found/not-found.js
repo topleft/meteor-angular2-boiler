@@ -14,27 +14,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var angular2_meteor_accounts_ui_1 = require('angular2-meteor-accounts-ui');
 var angular2_meteor_1 = require('angular2-meteor');
-var router_1 = require('@angular/router');
-var main_menu_ts_1 = require('../main-menu/main-menu.ts');
-var login_logout_ts_1 = require('../login-logout/login-logout.ts');
-var layout_html_1 = require('./layout.html');
+var not_found_html_1 = require('./not-found.html');
 //  when menu is displayed, menu button become a back button
-var Layout = (function (_super) {
-    __extends(Layout, _super);
-    function Layout() {
+var NotFound = (function (_super) {
+    __extends(NotFound, _super);
+    function NotFound() {
         _super.apply(this, arguments);
     }
-    Layout = __decorate([
+    NotFound = __decorate([
         core_1.Component({
-            selector: 'layout',
-            template: layout_html_1.default,
-            directives: [angular2_meteor_accounts_ui_1.LoginButtons, router_1.ROUTER_DIRECTIVES, main_menu_ts_1.MainMenu, login_logout_ts_1.LoginLogout]
+            selector: 'notFound',
+            template: not_found_html_1.default,
         }), 
         __metadata('design:paramtypes', [])
-    ], Layout);
-    return Layout;
+    ], NotFound);
+    return NotFound;
 }(angular2_meteor_1.MeteorComponent));
-exports.Layout = Layout;
-//# sourceMappingURL=layout.js.map
+exports.NotFound = NotFound;
+//# sourceMappingURL=not-found.js.map

@@ -16,7 +16,9 @@ var common_1 = require('@angular/common');
 var main_menu_ts_1 = require('./imports/main-menu/main-menu.ts');
 var parties_list_ts_1 = require('./imports/parties-list/parties-list.ts');
 var party_details_ts_1 = require('./imports/party-details/party-details.ts');
+var login_form_ts_1 = require('./imports/login-form/login-form.ts');
 var layout_ts_1 = require('./imports/layout/layout.ts');
+var not_found_ts_1 = require('./imports/not-found/not-found.ts');
 var app_html_1 = require('./app.html');
 var Socially = (function () {
     function Socially() {
@@ -35,6 +37,8 @@ var routes = [
     { path: '', component: parties_list_ts_1.PartiesList },
     { path: 'party/:partyId', component: party_details_ts_1.PartyDetails },
     { path: 'main-menu', component: main_menu_ts_1.MainMenu },
+    { path: 'login', component: login_form_ts_1.LoginForm },
+    { path: '**', component: not_found_ts_1.NotFound },
 ];
 var APP_ROUTER_PROVIDERS = [
     router_1.provideRouter(routes)

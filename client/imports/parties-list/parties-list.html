@@ -3,15 +3,17 @@
     <parties-form></parties-form>
   </div>
   <div class="col-xs-8">
-    <div class="row" *ngFor="let party of parties">
-        <div class="card">
-          <div class="card-block">
-            <a [routerLink]="['/party', party._id]">{{party.name}}</a>
-            <p>{{party.description}}</p>
-            <p>{{party.location}}</p>
-            <button (click)="removeParty(party)" *ngIf="user">X</button>
+    <div class="" *ngFor="let party of parties">
+      <div class="card col-xs-6 party-card">
+        <div class="card-block">
+          <a [routerLink]="['/party', party._id]">{{party.name}}</a>
+          <div class="party-description">
+            <p class="">{{party.description}}</p>
           </div>
+          <p>{{party.location}}</p>
+          <button class='btn btn-sm btn-danger'(click)="removeParty(party)" *ngIf="user">X</button>
         </div>
       </div>
+    </div>
   </div>
 </div>
