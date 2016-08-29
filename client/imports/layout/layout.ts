@@ -14,7 +14,7 @@ import template from './layout.html'
 @Component({
   selector: 'layout',
   template,
-  directives: [LoginButtons, ROUTER_DIRECTIVES, MainMenu, LoginLogout]
+  directives: [LoginButtons, ROUTER_DIRECTIVES, MainMenu, LoginButtons, LoginLogout]
 })
 
 export class Layout extends MeteorComponent {}

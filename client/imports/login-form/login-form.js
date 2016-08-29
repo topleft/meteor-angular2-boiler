@@ -19,11 +19,13 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var meteor_1 = require('meteor/meteor');
 var angular2_meteor_1 = require('angular2-meteor');
+var router_1 = require('@angular/router');
 var login_form_html_1 = require('./login-form.html');
 var LoginForm = (function (_super) {
     __extends(LoginForm, _super);
-    function LoginForm() {
+    function LoginForm(router) {
         _super.call(this);
+        this.router = router;
         var fb = new common_1.FormBuilder();
         this.createAccountButtonText = 'create account';
         this.isCreatingAccount = false;
@@ -43,38 +45,39 @@ var LoginForm = (function (_super) {
         }
     };
     LoginForm.prototype.login = function (user) {
-        meteor_1.Meteor.loginWithPassword(user.username, user.password, function (err) {
-            if (err) {
-                console.log("Login error: #{err}");
-            }
-            else {
-                console.log("Success: #{user.username is logged in!}");
-            }
-        });
-    };
-    // handle password match with  form validator
-    LoginForm.prototype.createAccount = function (user) {
-        if (user.password === user.confirmPassword) {
-            accounts_base_1.Accounts.createUser(user, function () {
-                meteor_1.Meteor.call('setPassword', meteor_1.Meteor.userId(), user.password, function (err) {
+        var _this = this;
+        if (this.isCreatingAccount) {
+            if (user.password === user.confirmPassword) {
+                accounts_base_1.Accounts.createUser(user, function (err) {
                     if (err) {
-                        console.log("Creation error: #{err}");
+                        console.log("Login error:", err);
                     }
                     else {
-                        console.log("Success: #{user.username is logged in!}");
+                        _this.router.navigate(['/']);
+                        console.log("Success: #{user.username} is logged in!");
                     }
                 });
-            });
+            }
+            else {
+                console.log('Passwords do not match. Try again.');
+            }
+        }
+        else {
             meteor_1.Meteor.loginWithPassword(user.username, user.password, function (err) {
+                if (err) {
+                    console.log("Login error:", err);
+                }
             });
         }
     };
+    ;
     LoginForm = __decorate([
         core_1.Component({
             selector: 'login-form',
-            template: login_form_html_1.default
+            template: login_form_html_1.default,
+            directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], LoginForm);
     return LoginForm;
 }(angular2_meteor_1.MeteorComponent));

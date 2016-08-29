@@ -48,6 +48,7 @@ export class PartyDetails  extends MeteorComponent {
   }
 
   editParty( party: Party ) {
+    console.log('party', party)
     Parties.update(party._id, {
       $set: {
         name: party.name,

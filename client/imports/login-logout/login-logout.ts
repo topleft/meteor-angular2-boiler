@@ -16,28 +16,12 @@ import template from './login-logout.html';
 
 export class LoginLogout extends MeteorComponent {
   user: Meteor.User
-  buttonText: String
-  onClick: Function
-  path: String
 
   constructor() {
     super()
   }
 
-// figure out how to access meteor.user inside a component
-
-  ngOnInit() {
-    console.log('wowza user',)
-    if (Meteor.user()) {
-      this.user = Meteor.user()
-      this.buttonText = 'Logout'
-      this.onClick = Meteor.logout
-      this.path = '/'
-    } else {
-      this.buttonText = 'Login'
-      this.path = 'login'
-    }
-
-  };
-
+  logout() {
+    Meteor.logout()
+  }
 }

@@ -30,7 +30,7 @@ var Layout = (function (_super) {
         core_1.Component({
             selector: 'layout',
             template: layout_html_1.default,
-            directives: [angular2_meteor_accounts_ui_1.LoginButtons, router_1.ROUTER_DIRECTIVES, main_menu_ts_1.MainMenu, login_logout_ts_1.LoginLogout]
+            directives: [angular2_meteor_accounts_ui_1.LoginButtons, router_1.ROUTER_DIRECTIVES, main_menu_ts_1.MainMenu, angular2_meteor_accounts_ui_1.LoginButtons, login_logout_ts_1.LoginLogout]
         }), 
         __metadata('design:paramtypes', [])
     ], Layout);

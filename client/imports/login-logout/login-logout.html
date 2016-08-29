@@ -1,3 +1,4 @@
 <div class='navbar-fixed-bottom col-xs-12'>
-  <a [routerLink]="['/' + path]" (click)="onClick()">{{buttonText}}</a>
+  <a *ngIf="!user" [routerLink]="['/login']">Login/Create Account</a>
+  <a *ngIf="user" [routerLink]="['/']" (click)="logout()">Logout</a>
 </div>

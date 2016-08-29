@@ -81,6 +81,34 @@ ul.main-menu {
   margin-top: 2rem;
 }
 
-.party-card {
+// --------------- PARTY LIST ----------- //
+
+.list-card {
   height: 220px;
+  margin: 0 10px;
+}
+
+.card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 75px;
+  // must break these margins out or it applies to all sides
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-image {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: auto;
+}
+
+.remove-card-button {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
 }

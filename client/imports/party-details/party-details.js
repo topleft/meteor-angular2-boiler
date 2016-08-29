@@ -45,6 +45,7 @@ var PartyDetails = (function (_super) {
         });
     };
     PartyDetails.prototype.editParty = function (party) {
+        console.log('party', party);
         parties_ts_1.Parties.update(party._id, {
             $set: {
                 name: party.name,

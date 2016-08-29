@@ -4,13 +4,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, ControlGroup, Validators, Control } from '@angular/common';
 import { Meteor } from 'meteor/meteor';
 import { MeteorComponent } from 'angular2-meteor';
-import { InjectUser } from 'angular2-meteor-accounts-ui';
+import { ActivatedRoute, ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import template from './login-form.html';
 
 @Component({
   selector: 'login-form',
-  template
+  template,
+  directives: [ROUTER_DIRECTIVES]
 })
 
 export class LoginForm extends MeteorComponent {
@@ -19,7 +20,7 @@ export class LoginForm extends MeteorComponent {
   isCreatingAccount: Boolean;
   createAccountButtonText: String;
 
-  constructor () {
+  constructor (private router: Router) {
     super()
     let fb = new FormBuilder();
     this.createAccountButtonText = 'create account'
@@ -28,7 +29,7 @@ export class LoginForm extends MeteorComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['']
-    })
+    });
   }
 
 
@@ -42,31 +43,27 @@ export class LoginForm extends MeteorComponent {
   }
 
   login(user) {
-    Meteor.loginWithPassword(user.username, user.password, (err) => {
-      if (err) {
-        console.log("Login error: #{err}")
-      } else {
-        console.log("Success: #{user.username is logged in!}")
-      }
-    })
-  }
-
-  // handle password match with  form validator
-  createAccount(user) {
-    if (user.password === user.confirmPassword) {
-      Accounts.createUser(user, () => {
-        Meteor.call('setPassword', Meteor.userId(), user.password, (err) => {
+    if (this.isCreatingAccount) {
+      if (user.password === user.confirmPassword) {
+        Accounts.createUser(user, (err) => {
           if (err) {
-            console.log("Creation error: #{err}")
+            console.log("Login error:", err)
           } else {
-            console.log("Success: #{user.username is logged in!}")
+            this.router.navigate(['/'])
+            console.log("Success: #{user.username} is logged in!")
           }
-        })
-      })
-
+        });
+      } else {
+        console.log('Passwords do not match. Try again.')
+      }
+    } else {
       Meteor.loginWithPassword(user.username, user.password, (err) => {
+        if (err) {
+          console.log("Login error:", err)
+        }
       })
-
     }
-  }
+  };
+
+  // closes export
 };

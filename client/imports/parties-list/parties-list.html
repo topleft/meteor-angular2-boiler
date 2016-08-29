@@ -4,14 +4,21 @@
   </div>
   <div class="col-xs-8">
     <div class="" *ngFor="let party of parties">
-      <div class="card col-xs-6 party-card">
-        <div class="card-block">
-          <a [routerLink]="['/party', party._id]">{{party.name}}</a>
-          <div class="party-description">
-            <p class="">{{party.description}}</p>
+      <div class="col-xs-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="card-title">
+              <a [routerLink]="['/party', party._id]">{{party.name}}</a>
+            </div>
           </div>
-          <p>{{party.location}}</p>
-          <button class='btn btn-sm btn-danger'(click)="removeParty(party)" *ngIf="user">X</button>
+          <img class="card-image" src="http://www.diecastking.com/tub/bmw-k1300r-black-motorcycle-model-1-12-by-automaxx-600902bk.jpg" alt="" />
+          <div class="card-block">
+            <div class="card-description ellipsis">
+              <span class="">{{party.description}}</span>
+            </div>
+            <p class="card-text">{{party.location}}</p>
+            <button class='btn btn-sm btn-danger'(click)="removeParty(party)" *ngIf="user">X</button>
+          </div>
         </div>
       </div>
     </div>

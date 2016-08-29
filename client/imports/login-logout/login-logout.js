@@ -24,21 +24,9 @@ var LoginLogout = (function (_super) {
     function LoginLogout() {
         _super.call(this);
     }
-    // figure out how to access meteor.user inside a component
-    LoginLogout.prototype.ngOnInit = function () {
-        console.log('wowza user');
-        if (meteor_1.Meteor.user()) {
-            this.user = meteor_1.Meteor.user();
-            this.buttonText = 'Logout';
-            this.onClick = meteor_1.Meteor.logout;
-            this.path = '/';
-        }
-        else {
-            this.buttonText = 'Login';
-            this.path = 'login';
-        }
+    LoginLogout.prototype.logout = function () {
+        meteor_1.Meteor.logout();
     };
-    ;
     LoginLogout = __decorate([
         core_1.Component({
             selector: 'login-logout',
